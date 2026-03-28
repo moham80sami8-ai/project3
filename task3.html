@@ -1,0 +1,134 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+
+<script>
+function tellFortune(job, location, partner, children)
+{
+  document.write("You will be a " + job + " in " + location + ", and married to " + partner + " with " + children + " kids.<br>");
+}
+tellFortune('Computer  Engineer', 'Jordan', 'None', 0);
+function calculateDogAge(age) {
+  let dogAge = age * 7;
+  document.write("Your doggie is " + dogAge + " years old in dog years!<br>");
+}
+calculateDogAge(1);
+
+function calculateSupply(age, amount_per_day) 
+{
+  var maxAge = 100;
+  var remainingYears = maxAge - age;
+  var result = remainingYears * 365 * amount_per_day;
+
+  document.write("You will need " + result + " cups of tea to last you until the ripe old age of " + maxAge + "<br>");
+}
+calculateSupply(30, 3);
+
+/*
+4
+what is the error
+function double(cat) 
+{
+  return 2  x;
+}
+ x is not defined
+ 2*cat 
+---------------------------------------
+function double(7) {
+  return 2  7;
+}
+  A number (7) cannot be used as a parameter name
+  2*7
+-------------------------------------------
+function double('7') {
+  return 2  'x';
+}
+1. A string ('7') cannot be used as a parameter name.
+2. 'x' is a string, not a variable
+2*x
+---------------------------------------------------
+5
+fix these functions
+func double1(x {
+  return 2  x ;
+}
+
+fixed:
+functiion double1(x)
+ {
+  return 2*x ;
+}
+  ---------------------------------
+functiondouble2 x)
+return 2  x;
+}
+fixed:
+function double2 (x)
+{
+return 2*x;
+}
+----------------------------------------
+
+function (x) double3 {
+  return 2  x;
+fixed:
+function  double3(x)
+ {
+  return 2*x;
+}
+
+
+*/
+
+function canIGetADrivingLicense(age) 
+{
+  if (age >= 20) {
+   document.write( "yes you can");
+  } else {
+    var years = 20 - age;
+    document.write( "please come back after " + years + " years to get one");
+  }
+}
+
+canIGetADrivingLicense(21);
+canIGetADrivingLicense(17);
+canIGetADrivingLicense(40);
+function sameLength(str1, str2)
+{
+  return str1.length === str2.length;
+}
+
+document.write(sameLength("tree", "clue") + "<br>");
+document.write(sameLength("tree", "car") + "<br>");
+function average(a, b, c, d, e) 
+{
+  return (a + b + c + d + e) / 5;
+}
+
+document.write(average(1, 2, 3, 4, 5) + "<br>");
+document.write(average(5, 7, 9, 3, 5) + "<br>");
+
+function randomNumber()
+ {
+  return Math.random();
+}
+
+document.write(randomNumber() + "<br>");
+document.write(randomNumber() + "<br>");
+function randomBetweenNumbers(min, max)
+ {
+  return Math.random() * (max - min) + min;
+}
+document.write(randomBetweenNumbers(1, 8) + "<br>");
+
+document.write(randomBetweenNumbers(3, 100) + "<br>");
+
+</script>
+
+</body>
+</html>
