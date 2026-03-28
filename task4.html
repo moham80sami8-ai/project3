@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Form</title>
+
+<style>
+  body { font-family: Arial; padding:30px; }
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border:2px solid black;
+    padding:25px;
+    width:800px;
+  }
+
+  input {
+    padding:5px;
+    margin-top:5px;
+    margin-bottom:10px;
+  }
+
+  hr {
+    margin:15px 0;
+  }
+
+  button {
+    padding:6px 15px;
+    font-size:14px;
+  }
+
+</style>
+
+</head>
+<body>
+
+<h2>Display the form in one card using local Storage</h2>
+
+<div class="card">
+
+  Name:<br>
+  <input id="name"><br>
+
+  Age:<br>
+  <input id="age" type="number"><br>
+
+  Gender:<br>
+  <input id="gender"><br>
+
+  Birth Date:<br>
+  <input id="birthdate" type="date"><br>
+
+  Upload Your Image:<br>
+  <input type="file" id="image"><br>
+
+  <hr>
+
+  Description:<br>
+  <input id="description"><br>
+
+  Major and University:<br>
+  <input id="major"><br>
+
+  Programming Languages:
+  <input type="checkbox" id="html"> HTML
+  <input type="checkbox" id="css"> CSS
+  <input type="checkbox" id="js"> JavaScript
+  <br>
+
+  <hr>
+
+  Siblings Number:<br>
+  <input id="siblingsNum" type="number"><br>
+
+  Description of Siblings:<br>
+  <input id="siblingsDesc"><br>
+
+  <button onclick="saveToLocal()">Save</button>
+
+</div>
+
+<script>
+
+window.addEventListener("load", function () {
+
+  document.getElementById("name").value = localStorage.getItem("name") || "";
+  document.getElementById("age").value = localStorage.getItem("age") || "";
+  document.getElementById("gender").value = localStorage.getItem("gender") || "";
+  document.getElementById("birthdate").value = localStorage.getItem("birthdate") || "";
+  document.getElementById("description").value = localStorage.getItem("description") || "";
+  document.getElementById("major").value = localStorage.getItem("major") || "";
+  document.getElementById("siblingsNum").value = localStorage.getItem("siblingsNum") || "";
+  document.getElementById("siblingsDesc").value = localStorage.getItem("siblingsDesc") || "";
+
+  document.getElementById("html").checked = localStorage.getItem("html") === "true";
+  document.getElementById("css").checked = localStorage.getItem("css") === "true";
+  document.getElementById("js").checked = localStorage.getItem("js") === "true";
+
+});
+
+function saveToLocal() {
+
+  localStorage.setItem("name", document.getElementById("name").value);
+  localStorage.setItem("age", document.getElementById("age").value);
+  localStorage.setItem("gender", document.getElementById("gender").value);
+  localStorage.setItem("birthdate", document.getElementById("birthdate").value);
+  localStorage.setItem("description", document.getElementById("description").value);
+  localStorage.setItem("major", document.getElementById("major").value);
+  localStorage.setItem("siblingsNum", document.getElementById("siblingsNum").value);
+  localStorage.setItem("siblingsDesc", document.getElementById("siblingsDesc").value);
+
+  localStorage.setItem("html", document.getElementById("html").checked);
+  localStorage.setItem("css", document.getElementById("css").checked);
+  localStorage.setItem("js", document.getElementById("js").checked);
+
+  let file = document.getElementById("image").files[0];
+
+  if (file) {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      localStorage.setItem("image", e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  alert("Saved!");
+}
+
+</script>
+
+</body>
+</html>
