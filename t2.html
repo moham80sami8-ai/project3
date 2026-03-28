@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+
+<script>
+
+let students = [
+    { name: "Ahmad", age: 23, gpa: 67, isGraduated: false },
+    { name: "Mohammad", age: 21, gpa: 82, isGraduated: false },
+    { name: "Ali", age: 25, gpa: 88, isGraduated: true }
+];
+
+let highest_GPA = students[0].gpa;
+
+for (let x of students) {
+    if (x.gpa > highest_GPA) 
+    {
+        highest_GPA = x.gpa;
+    }
+}
+
+for (let r of students) {
+
+    document.write("Name: " + r.name + "<br>");
+    document.write("Age: " + r.age + "<br>");
+    document.write("GPA: " + r.gpa + "<br>");
+    document.write("Graduated: " + r.isGraduated + "<br>");
+
+    document.write("Type of name: " + typeof r.name + "<br>");
+    document.write("Type of age: " + typeof r.age + "<br>");
+    document.write("Type of gpa: " + typeof r.gpa + "<br>");
+    document.write("Type of isGraduated: " + typeof r.isGraduated + "<br>");
+
+    if (r.gpa < 0 || r.gpa > 100) 
+    {
+        document.write("Result: Invalid GPA<br>");
+    } else if (r.gpa >= 90) {
+        document.write("Result: Excellent<br>");
+    } else if (r.gpa >= 70 && r.gpa <= 89) {
+        document.write("Result: Good<br>");
+    } else {
+        document.write("Result: Fail<br>");
+    }
+
+    document.write("----------------------<br>");
+
+    if (r.gpa === highest_GPA) {
+        document.write("Top student found<br>");
+        break;
+    }
+}
+
+</script>
+
+</body>
+</html>
